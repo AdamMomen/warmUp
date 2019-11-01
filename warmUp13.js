@@ -17,6 +17,7 @@
             D          500
             M          1,000 
     
+
     2. Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
         Examples:
 
@@ -31,3 +32,77 @@
             filter_list([1,'a','b',0,15]) == [1,0,15]
             filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
 */
+function   converter(str) {
+var    splitedstr = str.split('');
+console.log(str);
+   return reduce(splitedstr, function (result, element) {
+       if(element !== 'I' ||element !== 'V'||element !== 'X'||element !== 'L'||element !== 'C'||element !== 'D'||element !== 'M'){
+        return 'Wrong entry';
+       }
+       switch (element){
+        case 'I':
+       return result +1;
+       break;
+         case 'V':
+       return result +5;
+       break;
+         case 'X':
+       return result +10;
+       break;
+         case 'L':
+       return result +50;
+       break;
+         case 'C':
+       return result +100;
+       break;
+         case 'D':
+       return result +500;
+       break;
+        case 'M':
+       return result +1000;
+       break;
+   }
+   },0)
+}
+
+function reduce(array, f, acc) { 
+       if (acc === undefined) { 
+             acc = array[0]; 
+             array = array.slice(1); 
+       } 
+       each(array, function(element, i) { 
+             acc = f(acc, element, i); 
+       }); 
+       return acc; 
+ }
+function each(array, f) {
+    for (var i = 0; i < array.length; i++) {
+        f(array[i],i)
+    }
+}
+///
+// toCamelCase("the-stealth-warrior") // returns "theStealthWarrior"
+
+//         toCamelCase("The_Stealth_Warrior") // returns "TheStealthWarrior"
+// USing to uppercase
+function toCamelCase(string) {
+    var copyOfstring = string;
+    result = [];
+    result.push(copyOfstring[0].toUpperCase());
+        copyOfstring =  copyOfstring.slice(1);
+        for (var i = copyOfstring.length - 1; i >= 0; i--) {
+           if (copyOfstring[i] === '_') {
+                result.push(copyOfstring[i+1].toUpperCase());
+                i++;
+           } else {
+                 result.push(copyOfstring[i];
+           }
+        }
+        return result;
+ }
+
+ function filter_list(array) {
+     return filter(array, function (element) {
+         return typeOf(element === 'number')
+     })
+ }
