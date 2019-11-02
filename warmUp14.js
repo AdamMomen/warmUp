@@ -18,6 +18,34 @@ Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0.
 */
 
-var maxProfit = function(prices) {
-  // YOUR CODE HERE
-};
+//implement a way to link days with stock peices (Done)
+
+var maxProfit = function(ArrOfprices) {
+
+var BuyingStock;
+var sellingStock;
+var profit ;
+var copyOfArrOfprices  = ArrOfprices;
+
+ return {
+	BuyingStock: BuyingStock ,
+	SellingStock :sellingStock,
+ 	buy: buy,
+ 	sell: sell,
+ 	profit: profit
+ 		};
+}
+var sell = function(day) {
+	sellingStock = copyOfArrOfprices[day]
+		if(BuyingStock < day){
+			return 'you are losing money';
+		}
+this.profit =  	this.BuyingStock - sellingStock;
+return 'Your tottal profit is ' + this.profit;
+}
+
+var buy = function 	(day) {
+	BuyingStock = copyOfArrOfprices[day];
+	this.BuyingStock = BuyingStock;
+	copyOfArrOfprices= copyOfArrOfprices.slice(day)
+}
